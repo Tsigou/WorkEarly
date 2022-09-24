@@ -1,0 +1,27 @@
+Step 1:Dowloaded the .txt file from GitHub
+
+Step 2:Created new Scema in Workbench with the data from the file
+
+Step 3: Used the query below to take data for the years 2016-2019:
+    select *
+    from finance_liquor_sales
+    where date >= '2016-01-01' and date <= '2019-12-31'
+
+Step 4:Open the csv file in PyCharm
+
+Step 5:Created a DataFrame from the data of the file
+
+Step 6:Found the best selling products for each zip_code
+       gp= df.sort_values('bottles_sold',ascending=False).drop_duplicates(['zip_code'])
+       
+       Faced some problems with the group by method and i decided to use sort to find the 
+       best selling product for each zip_code and used drop_dublicates to delete the rest of
+       the values for each zip_code
+
+step 7:I found the sum of bottle sales for each zip_code
+      bs=df.groupby(by="zip_code")['bottles_sold'].sum()
+
+Step 8:Found the distinct number of zip_codes
+       zip_codes=df["zip_code"].unique()
+
+Step9: Used step 7 and step 8 to create the plot
